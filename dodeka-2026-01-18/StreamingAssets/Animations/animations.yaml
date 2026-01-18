@@ -1,0 +1,412 @@
+# Dodecahedron Animation Definitions
+# All 18 built-in animations
+
+animations:
+  - id: 1
+    title: "1 - Vastakkaiset sopet + päiväntasaajakierto"
+    description: "Sopet 1 ja 18 puristuvat keskelle, päiväntasaaja (6-15) kiertyy"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 18]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+      - type: TwistDriver
+        vertexLabels: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        axis: [0, 1, 0]
+        angleDegrees: 36
+        strength: 80
+      - type: PlaneDriver
+        strength: 40
+        activationThreshold: 0.3
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 2
+    title: "2 - Vastakkaiset sopet + napapiirikierto"
+    description: "Sopet 1 ja 18 puristuvat keskelle, napapiirit (1-5, 16-20) kiertyvät vastakkaisiin suuntiin"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 18]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+      - type: TwistDriver
+        vertexLabels: [1, 2, 3, 4, 5]
+        axis: [0, 1, 0]
+        angleDegrees: 36
+        strength: 80
+      - type: TwistDriver
+        vertexLabels: [16, 17, 18, 19, 20]
+        axis: [0, 1, 0]
+        angleDegrees: -36
+        strength: 80
+      - type: PlaneDriver
+        strength: 40
+        activationThreshold: 0.3
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 3
+    title: "3 - Vastakkaiset sopet ilman kiertoa"
+    description: "Sopet 1 ja 18 puristuvat keskelle ilman kiertoa - kupera-kovera dodekaedri"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 18]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 4
+    title: "4 - Vastakkaiset sopet veto"
+    description: "Sopet 1 ja 18 vedetään poispäin keskipisteestä - tahot venyvät kolmiomaisiksi"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 18]
+        radiusFactor: 2.5
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 5
+    title: "5 - Vastakkaiset särmät puristus"
+    description: "Särmät 1-6 ja 11-18 puristuvat keskelle - kaikki särmät samalla tasolla"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 6, 11, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[1, 6], [11, 18]]
+        radiusFactor: 0
+        twistAngleDegrees: 0
+        strength: 60
+        damping: 5
+      - type: PlaneDriver
+        strength: 40
+        activationThreshold: 0.3
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 6
+    title: "6 - Vastakkaiset särmät puristus + kierto"
+    description: "Särmät 1-6 ja 11-18 puristuvat keskelle 90° kierrolla - särmät kohtisuorassa"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 6, 11, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[1, 6]]
+        radiusFactor: 0
+        twistAngleDegrees: 45
+        strength: 60
+        damping: 5
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[11, 18]]
+        radiusFactor: 0
+        twistAngleDegrees: -45
+        strength: 60
+        damping: 5
+      - type: PlaneDriver
+        strength: 40
+        activationThreshold: 0.3
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 7
+    title: "7 - Vastakkaiset särmät veto"
+    description: "Särmät 1-6 ja 11-18 vedetään poispäin keskipisteestä"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 6, 11, 18]
+    highlightEdgeIds: []
+    drivers:
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[1, 6], [11, 18]]
+        radiusFactor: 2.0
+        twistAngleDegrees: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 8
+    title: "8 - Vastakkaiset tahot puristus"
+    description: "Tahot 1-5 ja 16-20 puristuvat keskelle - maljamainen reuna"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 2, 3, 4, 5, 16, 17, 18, 19, 20]
+    highlightEdgeIds: []
+    drivers:
+      - type: FaceRadialDriver
+        faceVertexLabels: [[1, 2, 3, 4, 5], [16, 17, 18, 19, 20]]
+        radiusFactor: 0.1
+        strength: 60
+        damping: 5
+      - type: PlaneDriver
+        strength: 30
+        activationThreshold: 0.4
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 9
+    title: "9 - Vastakkaiset tahot puristus + kierto"
+    description: "Tahot 1-5 ja 16-20 puristuvat keskelle, toinen kiertyy 36° - yhteinen kymmenkulmo"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 2, 3, 4, 5, 16, 17, 18, 19, 20]
+    highlightEdgeIds: []
+    drivers:
+      - type: FaceRadialDriver
+        faceVertexLabels: [[1, 2, 3, 4, 5], [16, 17, 18, 19, 20]]
+        radiusFactor: 0.1
+        strength: 60
+        damping: 5
+      - type: TwistDriver
+        vertexLabels: [16, 17, 18, 19, 20]
+        axis: [0, 0, 1]
+        angleDegrees: 36
+        strength: 80
+      - type: PlaneDriver
+        strength: 30
+        activationThreshold: 0.4
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 10
+    title: "10 - Vastakkaiset tahot veto"
+    description: "Tahot 1-5 ja 16-20 vedetään poispäin keskipisteestä"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 2, 3, 4, 5, 16, 17, 18, 19, 20]
+    highlightEdgeIds: []
+    drivers:
+      - type: FaceRadialDriver
+        faceVertexLabels: [[1, 2, 3, 4, 5], [16, 17, 18, 19, 20]]
+        radiusFactor: 2.0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 11
+    title: "11 - Tetraedriset sopet puristus"
+    description: "Sopet 1, 10, 13, 16 puristuvat keskelle - tutkittava rakenne"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 10, 13, 16]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 10, 13, 16]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 12
+    title: "12 - Tetraedriset sopet veto"
+    description: "Sopet 1, 10, 13, 16 vedetään ulos - tetraedri"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 10, 13, 16]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 10, 13, 16]
+        radiusFactor: 3.0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 13
+    title: "13 - Kuutioiset särmät puristus"
+    description: "Kuution särmät puristuvat keskelle - oktaedri"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 2, 4, 7, 9, 10, 12, 14, 15, 16, 18, 19]
+    highlightEdgeIds: []
+    drivers:
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[1, 2], [4, 12], [7, 16], [9, 10], [14, 15], [18, 19]]
+        radiusFactor: 0
+        twistAngleDegrees: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 14
+    title: "14 - Kuutioiset särmät puristus + kierto"
+    description: "Kuution särmät puristuvat keskelle 45° kierrolla"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 2, 4, 7, 9, 10, 12, 14, 15, 16, 18, 19]
+    highlightEdgeIds: []
+    drivers:
+      - type: EdgeMidpointRadialDriver
+        edgePairs: [[1, 2], [4, 12], [7, 16], [9, 10], [14, 15], [18, 19]]
+        radiusFactor: 0
+        twistAngleDegrees: 45
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 15
+    title: "15 - Kuutioiset sopet veto"
+    description: "Sopet 1, 3, 7, 9, 12, 14, 18, 20 vedetään ulos - kuutio"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 3, 7, 9, 12, 14, 18, 20]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 3, 7, 9, 12, 14, 18, 20]
+        radiusFactor: 2.0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 16
+    title: "16 - Kuutioiset sopet puristus"
+    description: "Sopet 1, 3, 7, 9, 12, 14, 18, 20 puristuvat keskelle"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [1, 3, 7, 9, 12, 14, 18, 20]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [1, 3, 7, 9, 12, 14, 18, 20]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 17
+    title: "17 - Murtoviivaregas veto"
+    description: "Päiväntasaajan sopet 6-15 vedetään ulos - kymmenkulmo"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        radiusFactor: 1.8
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
+
+  - id: 18
+    title: "18 - Murtoviivaregas puristus"
+    description: "Päiväntasaajan sopet 6-15 puristuvat keskelle - pyramidit"
+    forwardDuration: 5
+    endHoldDuration: 2
+    orbitDuration: 6
+    orbitHoldDuration: 1
+    returnDuration: 4
+    highlightVertexLabels: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+    highlightEdgeIds: []
+    drivers:
+      - type: VertexRadialDriver
+        vertexLabels: [6, 7, 8, 9, 10, 11, 12, 13, 14, 15]
+        radiusFactor: 0
+        strength: 60
+        damping: 5
+    returnDriver:
+      strength: 60
+      damping: 6
